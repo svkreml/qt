@@ -27,6 +27,11 @@ Makefile*
 
 *.autosave
 
-#QtCtreator Qml
+# QtCreator Qml
+
 *.qmlproject.user
 *.qmlproject.user.*
+
+# Windows thumbnails
+
+Thumbs.db
