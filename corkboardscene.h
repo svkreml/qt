@@ -3,6 +3,9 @@
 
 #include <QGraphicsScene>
 
+#include "notepackitem.h"
+#include "picturepackitem.h"
+
 class CorkboardScene : public QGraphicsScene
 {
     Q_OBJECT
@@ -13,8 +16,8 @@ public:
 private:
     void align();
 
-    QGraphicsPixmapItem* notePack;
-    QGraphicsPixmapItem* picturePack;
+    NotePackItem* notePack;
+    PicturePackItem* picturePack;
 };
 
 #endif // CORKBOARDSCENE_H

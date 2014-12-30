@@ -4,11 +4,17 @@
 
 CorkboardScene::CorkboardScene(QObject* parent)
     : QGraphicsScene(parent),
-      notePack(addPixmap(QPixmap(":/textures/notePack.jpg")
-                         .scaled(80, 80, Qt::KeepAspectRatio))),
-      picturePack(addPixmap(QPixmap(":/textures/picturePack.jpg")
-                            .scaled(80, 80, Qt::KeepAspectRatio)))
+      notePack(new NotePackItem(
+                      QPixmap(":/textures/notePack.jpg")
+                      .scaled(80, 80, Qt::KeepAspectRatio))
+               ),
+      picturePack(new PicturePackItem(
+                      QPixmap(":/textures/picturePack.jpg")
+                      .scaled(80, 80, Qt::KeepAspectRatio))
+                  )
 {
+    addItem(notePack);
+    addItem(picturePack);
     connect(this, &CorkboardScene::sceneRectChanged, this, &CorkboardScene::align);
 }
 

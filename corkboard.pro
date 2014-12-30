@@ -15,11 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp \
         mainwindow.cpp \
         corkboard.cpp \
-        corkboardscene.cpp
+        corkboardscene.cpp \
+    notepackitem.cpp \
+    picturepackitem.cpp
 
 HEADERS += mainwindow.h \
         corkboard.h \
-        corkboardscene.h
+        corkboardscene.h \
+    notepackitem.h \
+    picturepackitem.h
 
 FORMS    +=
 
