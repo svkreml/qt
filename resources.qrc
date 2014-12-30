@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>textures/cork.jpg</file>
+        <file>textures/note.jpg</file>
+        <file>textures/notePack.jpg</file>
+        <file>textures/picturePack.jpg</file>
     </qresource>
 </RCC>

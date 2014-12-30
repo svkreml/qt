@@ -1,16 +1,15 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    corkboardScene(new CorkboardScene(this))
+    corkboard(new Corkboard(new CorkboardScene, this))
 {
-    ui->setupUi(this);
-    ui->corkboard->setScene(corkboardScene);
+    setWindowTitle("Corkboard");
+    setMinimumSize(640, 400);
+    resize(960, 600);
+    setCentralWidget(corkboard);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
 }

@@ -5,10 +5,6 @@
 
 #include "corkboard.h"
 
-namespace Ui {
-class MainWindow;
-}
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -18,9 +14,7 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
-
-    CorkboardScene* corkboardScene;
+    Corkboard* corkboard;
 };
 
 #endif // MAINWINDOW_H

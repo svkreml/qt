@@ -9,6 +9,12 @@ class CorkboardScene : public QGraphicsScene
 
 public:
     explicit CorkboardScene(QObject* parent = nullptr);
+
+private:
+    void align();
+
+    QGraphicsPixmapItem* notePack;
+    QGraphicsPixmapItem* picturePack;
 };
 
 #endif // CORKBOARDSCENE_H

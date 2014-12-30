@@ -12,16 +12,16 @@ TARGET = corkboard
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
+SOURCES += main.cpp \
         mainwindow.cpp \
-    corkboard.cpp \
-    corkboardscene.cpp
+        corkboard.cpp \
+        corkboardscene.cpp
 
-HEADERS  += mainwindow.h \
-    corkboard.h \
-    corkboardscene.h
+HEADERS += mainwindow.h \
+        corkboard.h \
+        corkboardscene.h
 
-FORMS    += mainwindow.ui
+FORMS    +=
 
 RESOURCES += \
     resources.qrc
