@@ -1,8 +1,6 @@
 #ifndef CORKBOARD_H
 #define CORKBOARD_H
 
-#include <vector>
-
 #include <QGraphicsView>
 
 #include "corkboardscene.h"
@@ -17,11 +15,10 @@ public:
     void setScene(CorkboardScene*);
 
 protected:
-    void resizeEvent(QResizeEvent *event) override;
+    virtual void resizeEvent(QResizeEvent *event);
 
 private:
     CorkboardScene* scene;
-    //std::vector<Note*> notes;
 };
 
 #endif // CORKBOARD_H

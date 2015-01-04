@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 
 #include "notepackitem.h"
+#include "noteproxywidget.h"
 #include "picturepackitem.h"
 
 class CorkboardScene : public QGraphicsScene
@@ -12,6 +13,11 @@ class CorkboardScene : public QGraphicsScene
 
 public:
     explicit CorkboardScene(QObject* parent = nullptr);
+
+protected:
+    virtual void dragEnterEvent(QGraphicsSceneDragDropEvent*);
+    virtual void dragMoveEvent(QGraphicsSceneDragDropEvent*);
+    virtual void dropEvent(QGraphicsSceneDragDropEvent*);
 
 private:
     void align();

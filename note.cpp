@@ -1,4 +1,3 @@
-#include <QSizeGrip>
 #include <QVBoxLayout>
 
 #include "note.h"

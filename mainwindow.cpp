@@ -9,7 +9,3 @@ MainWindow::MainWindow(QWidget *parent) :
     resize(960, 600);
     setCentralWidget(corkboard);
 }
-
-MainWindow::~MainWindow()
-{
-}

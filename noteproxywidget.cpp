@@ -4,10 +4,9 @@
 #include "noteproxywidget.h"
 
 NoteProxyWidget::NoteProxyWidget(QGraphicsItem* parent,
-                                 Note* note,
                                  Qt::WindowFlags wFlags)
     : QGraphicsProxyWidget(parent, wFlags),
-      note(note),
+      note(new Note),
       pinArea(new QGraphicsRectItem(
                   QRectF(QPointF(113, 0),
                          QPointF(151, 50)),
@@ -19,6 +18,7 @@ NoteProxyWidget::NoteProxyWidget(QGraphicsItem* parent,
 
 void NoteProxyWidget::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
+    setZValue(2);
     offset = event->pos();
     pinPressed = pinArea->contains(mapToItem(pinArea, offset));
     QGraphicsProxyWidget::mousePressEvent(event);
@@ -27,12 +27,19 @@ void NoteProxyWidget::mousePressEvent(QGraphicsSceneMouseEvent* event)
 void NoteProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
     auto pos = mapToScene(event->pos() - offset);
-    if (pinPressed && scene()->sceneRect().contains(pos))
-        setPos(pos);
-    else {
-        if (pos.x() < 0) pos.rx() = 0;
-        if (pos.y() < 0) pos.ry() = 0;
-        setPos(pos);
-    }
+    if (pinPressed)
+        if (scene()->sceneRect().contains(pos))
+            setPos(pos);
+        else {
+            if (pos.x() < 0) pos.rx() = 0;
+            if (pos.y() < 0) pos.ry() = 0;
+            setPos(pos);
+        }
     QGraphicsProxyWidget::mouseMoveEvent(event);
+}
+
+void NoteProxyWidget::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
+{
+    setZValue(0);
+    QGraphicsProxyWidget::mouseReleaseEvent(event);
 }
