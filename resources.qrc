@@ -1,8 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>textures/cork.jpg</file>
-        <file>textures/note.jpg</file>
         <file>textures/notePack.jpg</file>
         <file>textures/picturePack.jpg</file>
+        <file>fonts/Segoe Print.ttf</file>
+        <file>textures/note.png</file>
     </qresource>
 </RCC>

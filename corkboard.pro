@@ -17,13 +17,17 @@ SOURCES += main.cpp \
         corkboard.cpp \
         corkboardscene.cpp \
     notepackitem.cpp \
-    picturepackitem.cpp
+    picturepackitem.cpp \
+    note.cpp \
+    noteproxywidget.cpp
 
 HEADERS += mainwindow.h \
         corkboard.h \
         corkboardscene.h \
     notepackitem.h \
-    picturepackitem.h
+    picturepackitem.h \
+    note.h \
+    noteproxywidget.h
 
 FORMS    +=
 

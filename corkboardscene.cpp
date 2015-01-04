@@ -1,6 +1,8 @@
 #include <QGraphicsPixmapItem>
+#include <QGraphicsProxyWidget>
 
 #include "corkboardscene.h"
+#include "noteproxywidget.h"
 
 CorkboardScene::CorkboardScene(QObject* parent)
     : QGraphicsScene(parent),
@@ -15,7 +17,13 @@ CorkboardScene::CorkboardScene(QObject* parent)
 {
     addItem(notePack);
     addItem(picturePack);
-    connect(this, &CorkboardScene::sceneRectChanged, this, &CorkboardScene::align);
+    notePack->setZValue(1);
+    picturePack->setZValue(1);
+
+    addItem(new NoteProxyWidget);
+
+    connect(this, &CorkboardScene::sceneRectChanged,
+            this, &CorkboardScene::align);
 }
 
 void CorkboardScene::align()
