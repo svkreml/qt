@@ -8,7 +8,7 @@ class Note : public QPlainTextEdit
     Q_OBJECT
 
 public:
-    Note(QWidget* parent = 0);
+    Note(QWidget* parent = nullptr);
 };
 
 #endif // NOTE_H

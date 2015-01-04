@@ -10,7 +10,7 @@ class NoteProxyWidget : public QGraphicsProxyWidget
     Q_OBJECT
 
 public:
-    NoteProxyWidget(QGraphicsItem* parent = 0,
+    NoteProxyWidget(QGraphicsItem* parent = nullptr,
                     Note* note = new Note,
                     Qt::WindowFlags wFlags = 0);
 

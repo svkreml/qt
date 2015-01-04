@@ -6,7 +6,7 @@
 class NotePackItem : public QGraphicsPixmapItem
 {
 public:
-    NotePackItem(const QPixmap& pixmap, QGraphicsItem* parent = 0);
+    NotePackItem(const QPixmap& pixmap, QGraphicsItem* parent = nullptr);
 };
 
 #endif // NOTEPACKITEM_H

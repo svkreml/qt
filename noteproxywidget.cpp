@@ -1,3 +1,4 @@
+#include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 
 #include "noteproxywidget.h"
@@ -25,7 +26,13 @@ void NoteProxyWidget::mousePressEvent(QGraphicsSceneMouseEvent* event)
 
 void NoteProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
-    if (pinPressed)
-        setPos(mapToParent(event->pos() - offset));
+    auto pos = mapToScene(event->pos() - offset);
+    if (pinPressed && scene()->sceneRect().contains(pos))
+        setPos(pos);
+    else {
+        if (pos.x() < 0) pos.rx() = 0;
+        if (pos.y() < 0) pos.ry() = 0;
+        setPos(pos);
+    }
     QGraphicsProxyWidget::mouseMoveEvent(event);
 }
