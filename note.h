@@ -9,6 +9,9 @@ class Note : public QPlainTextEdit
 
 public:
     Note(QWidget* parent = nullptr);
+
+protected:
+    virtual void contextMenuEvent(QContextMenuEvent* e) { e->accept(); }
 };
 
 #endif // NOTE_H

@@ -5,5 +5,7 @@
         <file>textures/picturePack.jpg</file>
         <file>fonts/Segoe Print.ttf</file>
         <file>textures/note.png</file>
+        <file>textures/open.png</file>
+        <file>textures/save.png</file>
     </qresource>
 </RCC>

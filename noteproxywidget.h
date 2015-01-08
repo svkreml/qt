@@ -13,10 +13,11 @@ public:
     NoteProxyWidget(QGraphicsItem* parent = nullptr,
                     Qt::WindowFlags wFlags = 0);
 
+    Note* widget() const { return note; }
+
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent*);
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent*);
-    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent*);
 
 private:
     Note* note;
