@@ -18,15 +18,10 @@ CorkboardScene::CorkboardScene(QObject* parent)
                       QPixmap(":/textures/notePack.jpg")
                       .scaled(80, 80, Qt::KeepAspectRatio))
                ),
-      picturePack(new PicturePackItem(
-                      QPixmap(":/textures/picturePack.jpg")
-                      .scaled(80, 80, Qt::KeepAspectRatio))
-                  ),
       openIcon(new CorkboardSceneLoader(QPixmap(":/textures/open.png"))),
       saveIcon(new CorkboardSceneSaver(QPixmap(":/textures/save.png")))
 {
     addItem(notePack);
-    addItem(picturePack);
     addItem(openIcon);
     addItem(saveIcon);
 
@@ -34,7 +29,6 @@ CorkboardScene::CorkboardScene(QObject* parent)
     saveIcon->setPos(50, 5);
 
     notePack->setZValue(1);
-    picturePack->setZValue(1);
     openIcon->setZValue(1);
     saveIcon->setZValue(1);
 
@@ -52,12 +46,7 @@ void CorkboardScene::align()
             bottomRight - margins -
             notePack->boundingRect().bottomRight();
 
-    auto picturePackPos =
-            notePackPos - QPointF(0, margin) -
-            picturePack->boundingRect().bottomLeft();
-
     notePack->setPos(notePackPos);
-    picturePack->setPos(picturePackPos);
 }
 
 void CorkboardScene::clearNotes()

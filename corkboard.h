@@ -12,8 +12,6 @@ class Corkboard : public QGraphicsView
 public:
     Corkboard(CorkboardScene* scene, QWidget* parent = nullptr);
 
-    void setScene(CorkboardScene*);
-
 protected:
     virtual void resizeEvent(QResizeEvent *event);
 

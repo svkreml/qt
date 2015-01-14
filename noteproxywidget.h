@@ -18,6 +18,7 @@ public:
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent*);
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent*);
+    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent*);
 
 private:
     Note* note;

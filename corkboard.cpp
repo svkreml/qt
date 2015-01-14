@@ -15,11 +15,6 @@ Corkboard::Corkboard(CorkboardScene* scene, QWidget* parent)
     scene->setSceneRect(0, 0, width(), height());
 }
 
-void Corkboard::setScene(CorkboardScene* scene)
-{
-    QGraphicsView::setScene(scene);
-}
-
 void Corkboard::resizeEvent(QResizeEvent* event)
 {
     QGraphicsView::resizeEvent(event);

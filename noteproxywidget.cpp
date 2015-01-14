@@ -18,6 +18,7 @@ NoteProxyWidget::NoteProxyWidget(QGraphicsItem* parent,
 
 void NoteProxyWidget::mousePressEvent(QGraphicsSceneMouseEvent* event)
 {
+    setZValue(2);
     offset = event->pos();
     pinPressed = pinArea->contains(mapToItem(pinArea, offset));
     QGraphicsProxyWidget::mousePressEvent(event);
@@ -37,4 +38,10 @@ void NoteProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
         }
     }
     QGraphicsProxyWidget::mousePressEvent(event);
+}
+
+void NoteProxyWidget::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
+{
+    setZValue(0);
+    QGraphicsProxyWidget::mouseReleaseEvent(event);
 }

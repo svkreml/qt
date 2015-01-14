@@ -6,7 +6,6 @@
 
 #include "notepackitem.h"
 #include "noteproxywidget.h"
-#include "picturepackitem.h"
 
 class CorkboardSceneLoader;
 class CorkboardSceneSaver;
@@ -29,7 +28,6 @@ private:
     void align();
 
     NotePackItem* notePack;
-    PicturePackItem* picturePack;
     CorkboardSceneLoader* openIcon;
     CorkboardSceneSaver* saveIcon;
 };
