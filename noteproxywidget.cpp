@@ -1,6 +1,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 
+#include "corkboardscene.h"
 #include "noteproxywidget.h"
 
 NoteProxyWidget::NoteProxyWidget(QGraphicsItem* parent,
@@ -41,7 +42,19 @@ void NoteProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent* event)
 }
 
 void NoteProxyWidget::mouseReleaseEvent(QGraphicsSceneMouseEvent* event)
-{
+{    
     setZValue(0);
+
+    auto cbScene = dynamic_cast<CorkboardScene*>(scene());
+    if (cbScene) {
+        auto garbageArea = cbScene->garbageBinArea();
+        auto mappedToGarbageArea =
+                mapToScene(event->pos()) - garbageArea.topLeft();
+
+        garbageArea.moveTopLeft(QPointF(0, 0));
+        if (garbageArea.contains(mappedToGarbageArea))
+            cbScene->removeItem(this);
+
+    }
     QGraphicsProxyWidget::mouseReleaseEvent(event);
 }

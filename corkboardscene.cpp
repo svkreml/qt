@@ -18,6 +18,10 @@ CorkboardScene::CorkboardScene(QObject* parent)
                       QPixmap(":/textures/notePack.jpg")
                       .scaled(80, 80, Qt::KeepAspectRatio))
                ),
+      garbageBin(addPixmap(
+                     QPixmap(":/textures/garbageBin.png")
+                     .scaled(80, 80, Qt::KeepAspectRatio))
+                 ),
       openIcon(new CorkboardSceneLoader(QPixmap(":/textures/open.png"))),
       saveIcon(new CorkboardSceneSaver(QPixmap(":/textures/save.png")))
 {
@@ -29,11 +33,17 @@ CorkboardScene::CorkboardScene(QObject* parent)
     saveIcon->setPos(50, 5);
 
     notePack->setZValue(1);
+    garbageBin->setZValue(1);
     openIcon->setZValue(1);
     saveIcon->setZValue(1);
 
     connect(this, &CorkboardScene::sceneRectChanged,
             this, &CorkboardScene::align);
+}
+
+QRectF CorkboardScene::garbageBinArea()
+{
+    return garbageBin->mapRectToScene(garbageBin->boundingRect());
 }
 
 void CorkboardScene::align()
@@ -46,7 +56,12 @@ void CorkboardScene::align()
             bottomRight - margins -
             notePack->boundingRect().bottomRight();
 
+    auto garbageBinPos =
+            notePackPos - QPointF(0, margin) -
+            garbageBin->boundingRect().bottomLeft();
+
     notePack->setPos(notePackPos);
+    garbageBin->setPos(garbageBinPos);
 }
 
 void CorkboardScene::clearNotes()
@@ -148,6 +163,7 @@ void CorkboardSceneSaver::saveScene(QFile* file)
 
     if (!file->open(QFile::WriteOnly))
         return;
+
     QDataStream dataStream(file);
 
     for (QGraphicsItem* item : cbScene->items()) {

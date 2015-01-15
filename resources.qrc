@@ -6,5 +6,6 @@
         <file>textures/note.png</file>
         <file>textures/open.png</file>
         <file>textures/save.png</file>
+        <file>textures/garbageBin.png</file>
     </qresource>
 </RCC>
